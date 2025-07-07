@@ -60,16 +60,16 @@
       <div id="billing-fields" style="display: none; margin-top: 1rem;">
         <h4>Factuurgegevens</h4>
         <label>Naam op factuur *</label>
-        <input type="text" name="billing-name" required>
+        <input type="text" name="billing-name">
 
         <label>Factuuradres *</label>
-        <input type="text" name="billing-address" required>
+        <input type="text" name="billing-address" >
 
         <label>Postcode *</label>
-        <input type="text" name="billing-postcode" required>
+        <input type="text" name="billing-postcode">
 
         <label>Stad *</label>
-        <input type="text" name="billing-city" required>
+        <input type="text" name="billing-city">
       </div>
 
       <button type="submit" class="btn-next">Doorgaan naar betaling</button>
@@ -90,22 +90,48 @@
       </ul>
     </div>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const checkbox = document.querySelector('input[type="checkbox"]');
-      const billingFields = document.getElementById("billing-fields");
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkbox = document.getElementById("facturatie");
+    const billingFields = document.getElementById("billing-fields");
+    const form = document.getElementById("shipping-form");
 
-      checkbox.addEventListener("change", () => {
-        if (checkbox.checked) {
-          billingFields.style.display = "none";
-          // Limpia valores
-          billingFields.querySelectorAll('input').forEach(input => input.value = '');
-        } else {
-          billingFields.style.display = "block";
-        }
-      });
+    checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+        billingFields.style.display = "none";
+        billingFields.querySelectorAll("input").forEach(input => {
+          input.value = '';
+          input.classList.remove("invalid");
+        });
+      } else {
+        billingFields.style.display = "block";
+      }
     });
-  </script>
+
+    form.addEventListener("submit", (e) => {
+      if (!checkbox.checked) {
+        const requiredFields = billingFields.querySelectorAll("input");
+        let allFilled = true;
+
+        requiredFields.forEach(input => {
+          if (!input.value.trim()) {
+            input.classList.add("invalid");
+            allFilled = false;
+          } else {
+            input.classList.remove("invalid");
+          }
+        });
+
+        if (!allFilled) {
+          e.preventDefault();
+          alert("Vul alstublieft alle vereiste facturatiegegevens in.");
+        }
+      }
+    });
+  });
+</script>
+
+
 
 </body>
 </html>
