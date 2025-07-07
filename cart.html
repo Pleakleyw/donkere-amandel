@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winkelwagen | Donkere Amandel</title>
+  <link rel="stylesheet" href="css/css-cart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <img src="img/logo.jpg" alt="Donkere Amandel Logo" class="logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><a>|</a>
+          <li><a href="product.html">Producten</a></li><a>|</a>
+          <li><a href="contact.html">Contact</a></li><a>|</a>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO DEL CARRITO -->
+  <main id="cart">
+    <section class="cart-section">
+      <div class="container cart-layout">
+        <!-- Productos cargados por JS -->
+        <div class="cart-items" id="cart-items"></div>
+
+        <!-- Resumen del carrito -->
+        <aside class="cart-summary" id="cart-summary">
+          <h3>Bestelling Overzicht</h3>
+          <div id="summary-details">
+            <!-- Insertado con JS -->
+          </div>
+          <button class="checkout-btn">Bestellen</button>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: <a href="mailto:info@donkereamandel.nl">info@donkereamandel.nl</a> | Telefoon: +31 20 123 4567</p>
+      <ul class="socials">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X</a></li>
+      </ul>
+      <ul class="policy-links">
+        <li><a href="privacy.html">Privacybeleid</a></li>
+        <li><a href="terms.html">Algemene Voorwaarden</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/cart.js"></script>
+
+
+</body>
+</html>

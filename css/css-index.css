@@ -1,0 +1,386 @@
+/* css/css-index.css */
+
+/* ====== BASE ====== */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f6f2;
+  color: #3e2f27;
+}
+
+header {
+  background-color: #5c4033;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+header .container {
+  width: 100%;
+  max-width: 1700px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-container .logo {
+  height: 60px;
+  width: 270px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.nav-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.nav-menu li a:hover {
+  text-decoration: underline;
+  color: #ffcc66
+}
+.hero {
+  background-color: #e3d8cf;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.featured-product {
+  background-color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.product-highlight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.product-highlight img {
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-info {
+  max-width: 500px;
+  text-align: left;
+}
+
+.product-info h3 {
+  margin-top: 0;
+}
+
+button {
+  background-color: #a0522d;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #7b3f22;
+}
+
+footer {
+  background-color: #3e2f27;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+footer a {
+  color: #f2e6d9;
+  text-decoration: none;
+}
+
+.socials,
+.policy-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.socials i,
+.nav-menu i {
+  margin-right: 5px;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .product-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+/* ===== HERO SLIDER ===== */
+
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-btn {
+  margin-top: 1rem;
+  background-color: #a0522d;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #7b3f22;
+}
+
+/* Simulated slide backgrounds */
+.slide-1 {
+  background-image: url('../img/slide-1.jpg');
+}
+
+.slide-2 {
+  background-image: url('../img/slide-2.jpg');
+}
+
+.slide-3 {
+  background-image: url('../img/slide-3.jpg');
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 60vh;
+  }
+
+  .slide .overlay h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+/* Slider navigation arrows */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+.slider-controls button {
+  background-color: transparent;
+  border: none; /* <--- elimina el borde blanco */
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.slider-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+/* ====== BRAND INTRODUCTIE ====== */
+.brand-intro {
+  background-color: #f9f6f2;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.brand-intro .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  color: #3e2f27;
+  line-height: 1.6;
+}
+
+
+/* ===== Introductory Benefits Section ===== */
+.intro-benefits {
+  background-color: #f9f6f2;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.intro-benefits .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-benefits h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #3e2f27;
+}
+
+.benefits-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.benefit-item {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.benefit-item i {
+  font-size: 2.5rem;
+  color: #a0522d;
+  margin-bottom: 1rem;
+}
+
+.benefit-item h3 {
+  font-size: 1.2rem;
+  color: #5c4033;
+}
+
+.benefit-item p {
+  color: #3e2f27;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .benefits-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}

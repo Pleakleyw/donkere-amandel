@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verzendgegevens | Donkere Amandel</title>
+  <link rel="stylesheet" href="css/css-cart.css"/>
+  <link rel="stylesheet" href="css/css-shipping.css"/>
+
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <img src="img/logo.jpg" alt="Donkere Amandel Logo" class="logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><a>|</a>
+          <li><a href="product.html">Producten</a></li><a>|</a>
+          <li><a href="contact.html">Contact</a></li><a>|</a>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shipping-container">
+    <form id="shipping-form" action="payment.html" method="get">
+      <h2>Verzendgegevens</h2>
+      <div class="form-group">
+        <label for="voornaam">Voornaam *</label>
+        <input type="text" id="voornaam" name="voornaam" required>
+      </div>
+      <div class="form-group">
+        <label for="achternaam">Achternaam *</label>
+        <input type="text" id="achternaam" name="achternaam" required>
+      </div>
+      <div class="form-group">
+        <label for="adres">Adres *</label>
+        <input type="text" id="adres" name="adres" required>
+      </div>
+      <div class="form-group">
+        <label for="stad">Stad *</label>
+        <input type="text" id="stad" name="stad" required>
+      </div>
+      <div class="form-group">
+        <label for="postcode">Postcode *</label>
+        <input type="text" id="postcode" name="postcode" required>
+      </div>
+      <div class="form-group">
+        <label for="telefoon">Telefoon *</label>
+        <input type="tel" id="telefoon" name="telefoon" required>
+      </div>
+      <div class="form-group checkbox">
+        <input type="checkbox" id="facturatie" checked>
+        <label for="facturatie">Gebruik als factuuradres</label>
+      </div>
+      <div id="billing-fields" style="display: none; margin-top: 1rem;">
+        <h4>Factuurgegevens</h4>
+        <label>Naam op factuur *</label>
+        <input type="text" name="billing-name" required>
+
+        <label>Factuuradres *</label>
+        <input type="text" name="billing-address" required>
+
+        <label>Postcode *</label>
+        <input type="text" name="billing-postcode" required>
+
+        <label>Stad *</label>
+        <input type="text" name="billing-city" required>
+      </div>
+
+      <button type="submit" class="btn-next">Doorgaan naar betaling</button>
+    </form>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: <a href="mailto:info@donkereamandel.nl">info@donkereamandel.nl</a> | Telefoon: +31 20 123 4567</p>
+      <ul class="socials">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X</a></li>
+      </ul>
+      <ul class="policy-links">
+        <li><a href="privacy.html">Privacybeleid</a></li>
+        <li><a href="terms.html">Algemene Voorwaarden</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const checkbox = document.querySelector('input[type="checkbox"]');
+      const billingFields = document.getElementById("billing-fields");
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          billingFields.style.display = "none";
+          // Limpia valores
+          billingFields.querySelectorAll('input').forEach(input => input.value = '');
+        } else {
+          billingFields.style.display = "block";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+.payment-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.form-container h2 {
+  margin-top: 0;
+  color: #5c4033;
+}
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.row {
+  display: flex;
+  gap: 1rem;
+}
+.row div {
+  flex: 1;
+}
+button {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  width: 100%;
+  background-color: #5c4033;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+footer {
+  background-color: #3e2f27;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+
+.card-input-wrapper {
+  position: relative;
+}
+#card-type {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #5c4033;
+}

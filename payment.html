@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Betaling | Donkere Amandel</title>
+  <link rel="stylesheet" href="css/css-payment.css">
+  <link rel="stylesheet" href="css/css-cart.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <img src="img/logo.jpg" alt="Donkere Amandel Logo" class="logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><a>|</a>
+          <li><a href="product.html">Producten</a></li><a>|</a>
+          <li><a href="contact.html">Contact</a></li><a>|</a>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="payment-form">
+    <section class="form-container">
+      <h2>Betaalmethode</h2>
+      <form action="checkout.html" method="GET">
+        <label for="card-name">Naam op kaart</label>
+        <input type="text" id="card-name" name="card-name" required>
+
+        <label for="card-number">Kaartnummer</label>
+        <div class="card-input-wrapper">
+          <input type="text" id="card-number" name="card-number" required placeholder="1234 5678 9012 3456">
+          <span id="card-type"></span>
+        </div>
+
+
+        <div class="row">
+          <div>
+            <label for="exp-date">Vervaldatum</label>
+            <input type="text" id="exp-date" name="exp-date" placeholder="MM/YY" required>
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" maxlength="4" required>
+          </div>
+        </div>
+
+        <button type="submit">Betaling voltooien</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: <a href="mailto:info@donkereamandel.nl">info@donkereamandel.nl</a> | Telefoon: +31 20 123 4567</p>
+      <ul class="socials">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X</a></li>
+      </ul>
+      <ul class="policy-links">
+        <li><a href="privacy.html">Privacybeleid</a></li>
+        <li><a href="terms.html">Algemene Voorwaarden</a></li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script src="script/payment.js"></script>
+  <script> 
+    /*Validación para que ponga digitos correctos de tarjeta */
+      document.querySelector("form").addEventListener("submit", function (e) {
+        const cardNumber = cardNumberInput.value.replace(/\s/g, '');
+        const cvv = cvvInput.value.trim();
+        const exp = expInput.value.trim();
+
+        let errors = [];
+
+        let type = cardTypeSpan.textContent;
+        let validLength = false;
+
+        if (type === "Visa") {
+          validLength = (cardNumber.length === 13 || cardNumber.length === 16);
+        } else if (type === "MasterCard" || type === "Discover") {
+          validLength = (cardNumber.length === 16);
+        } else if (type === "American Express") {
+          validLength = (cardNumber.length === 15);
+        } else {
+          validLength = (cardNumber.length >= 12 && cardNumber.length <= 19); // fallback
+        }
+
+        if (!validLength) {
+          errors.push(`Ongeldige lengte voor ${type || 'kaarttype'}.`);
+        }
+
+        if (!/^\d{2}\/\d{2}$/.test(exp)) {
+          errors.push("De vervaldatum moet het formaat MM/YY hebben.");
+        } else {
+          const [month, year] = exp.split("/").map(Number);
+          if (month < 1 || month > 12) {
+            errors.push("Voer een geldige maand in (01-12).");
+          }
+        }
+
+        if (cvv.length < 3 || cvv.length > 4) {
+          errors.push("De CVV moet 3 of 4 cijfers bevatten.");
+        }
+
+        if (errors.length > 0) {
+          e.preventDefault();
+          alert(errors.join("\\n"));
+        }
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donkere Amandel | Contact</title>
+  <link rel="stylesheet" href="css/css-contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-flex">
+      <a href="index.html" class="logo-container">
+        <img src="img/logo.jpg" alt="Donkere Amandel Logo" class="logo">
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li><a>|</a>
+          <li><a href="product.html">Producten</a></li><a>|</a>
+          <li><a href="contact.html">Contact</a></li><a>|</a>
+          <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTACT -->
+  <main class="contact-section">
+    <div class="contact-container">
+      <h2>Neem contact met ons op</h2>
+      <p>Heb je vragen over onze producten of je bestelling? Vul het formulier in en we nemen zo snel mogelijk contact met je op.</p>
+      
+      <form class="contact-form">
+        <label for="name">Naam:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">E-mailadres:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="subject">Onderwerp:</label>
+        <input type="text" id="subject" name="subject" required />
+
+        <label for="message">Bericht:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Verzenden</button>
+      </form>
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <p>Contact: <a href="mailto:info@donkereamandel.nl">info@donkereamandel.nl</a> | Telefoon: +31 20 123 4567</p>
+      <ul class="socials">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X</a></li>
+      </ul>
+      <ul class="policy-links">
+        <li><a href="privacy.html">Privacybeleid</a></li>
+        <li><a href="terms.html">Algemene Voorwaarden</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script/cart.js"></script>
+  <script>
+      /*Alerta para confirmar que se envío el formulario */
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      alert("Bedankt! Je bericht is verzonden.");
+      this.reset(); 
+    });
+  </script>
+
+  </script>
+</body>
+</html>
