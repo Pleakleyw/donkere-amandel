@@ -96,13 +96,6 @@ footer a {
   margin-right: 5px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .benefits-list {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 /* ====== PRODUCTEN SECTIE ====== */
 .product-section {
   padding: 4rem 1rem;
@@ -193,6 +186,20 @@ footer a {
   width: 270px;
 }
 
+/* Responsive para navegación */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.divider {
+  display: inline;
+  margin: 0 0.5rem;
+}
 /* Vista móvil */
 
 @media (max-width: 768px) {
