@@ -1,5 +1,7 @@
+* {
+  box-sizing: border-box;
+}
 /* ====== BASE ====== */
-
 html, body {
   height: 100%;
   display: flex;
@@ -8,13 +10,13 @@ html, body {
 main {
   flex: 1;
 }
-
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f9f6f2;
   color: #3e2f27;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -220,4 +222,38 @@ footer a {
 .logo-container .logo {
   height: 60px;
   width: 270px;
+}
+
+/* Vista móvil */
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #5c4033;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .header-flex {
+    justify-content: space-between;
+    position: relative;
+  }
 }
