@@ -395,7 +395,38 @@ footer a {
   display: inline;
   margin: 0 0.5rem;
 }
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .product-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-info {
+    text-align: center;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
 /* Vista móvil */
 @media (max-width: 768px) {
   .nav-menu {
